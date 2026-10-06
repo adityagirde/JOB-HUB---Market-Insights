@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JOB HUB - Market Insight</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Chart.js CDN for Market Analytics -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-[#09090b] text-gray-200 font-sans antialiased selection:bg-indigo-600 selection:text-white">
+
+  <!-- ================= NAVBAR ================= -->
+  <nav class="sticky top-0 z-50 bg-[#0d0d12]/90 backdrop-blur-md border-b border-zinc-800 px-4 lg:px-8 py-3 transition-all duration-300">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+      
+      <!-- Brand Logo & Title -->
+      <div class="flex items-center space-x-3 cursor-pointer">
+        <div class="w-10 h-10 bg-black border border-zinc-700 rounded-lg flex items-center justify-center font-extrabold text-white text-xl tracking-wider shadow-md hover:border-indigo-500 transition-colors">
+          JH
+        </div>
+        <div class="flex flex-col">
+          <span class="text-lg font-bold tracking-tight text-white flex items-center gap-2">
+            JOB HUB <span class="text-xs px-2 py-0.5 rounded-full bg-indigo-950 text-indigo-400 border border-indigo-800">Market Insight</span>
+          </span>
+          <span class="text-xs text-zinc-400">Data Analytics & Job Market Trends</span>
+        </div>
+      </div>
+
+      <!-- Center Nav Links -->
+      <div class="flex items-center space-x-6 text-sm font-medium text-zinc-300">
+        <a href="#overview" class="hover:text-white transition-colors flex items-center gap-1.5 active-link">
+          <i class="fa-solid fa-[#6366f1] fa-chart-line text-indigo-400"></i> Overview
+        </a>
+        <a href="#skills" class="hover:text-white transition-colors flex items-center gap-1.5">
+          <i class="fa-solid fa-fire text-amber-400"></i> Hot Skills
+        </a>
+        <a href="#jobs" class="hover:text-white transition-colors flex items-center gap-1.5">
+          <i class="fa-solid fa-briefcase text-emerald-400"></i> Market Jobs
+        </a>
+        <a href="#analytics" class="hover:text-white transition-colors flex items-center gap-1.5">
+          <i class="fa-solid fa-[#a855f7] fa-chart-pie text-purple-400"></i> Analytics Report
+        </a>
+      </div>
+
+      <!-- Search Box & Country Filter -->
+      <div class="flex items-center space-x-3 w-full md:w-auto">
+        <div class="relative w-full md:w-64">
+          <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-zinc-500 text-xs"></i>
+          <input type="text" id="searchInput" placeholder="Search skills, roles..." 
+            class="w-full pl-9 pr-4 py-1.5 text-xs bg-zinc-900 text-white placeholder-zinc-500 border border-zinc-800 rounded-lg focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition">
+        </div>
+        <select id="countrySelect" class="bg-zinc-900 text-xs border border-zinc-800 text-zinc-300 rounded-lg px-2.5 py-1.5 focus:outline-none focus:border-indigo-500 cursor-pointer">
+          <option value="IN">🇮🇳 India</option>
+          <option value="US">🇺🇸 USA</option>
+          <option value="GLOBAL">🌐 Global</option>
+        </select>
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- ================= HERO STATS ================= -->
+  <section id="overview" class="max-w-7xl mx-auto px-4 lg:px-8 pt-8 pb-6 animate-fade-in">
+    <div class="flex flex-col md:flex-row items-md-center justify-between gap-4 mb-6">
+      <div>
+        <h1 class="text-2xl md:text-3xl font-extrabold text-white tracking-tight">Real-Time Job Market Intelligence</h1>
+        <p class="text-xs md:text-sm text-zinc-400 mt-1">Live data analytics on hiring trends, top demand technologies, and salary ranges (India Region).</p>
+      </div>
+      <div class="flex items-center gap-2 text-xs bg-zinc-900 border border-zinc-800 px-3 py-2 rounded-lg text-zinc-300">
+        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        Dataset Updated: <span class="text-white font-mono" id="currentDate">October 2026</span>
+      </div>
+    </div>
+
+    <!-- Key Metrics Grid -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div class="metric-card">
+        <span class="text-xs text-zinc-400 font-medium">Analyzed Job Postings</span>
+        <div class="text-2xl font-bold text-white mt-1">142,850+</div>
+        <span class="text-[10px] text-emerald-400 flex items-center gap-1 mt-1">
+          <i class="fa-solid fa-arrow-trend-up"></i> +14.2% MoM
+        </span>
+      </div>
+      <div class="metric-card">
+        <span class="text-xs text-zinc-400 font-medium">Top In-Demand Role</span>
+        <div class="text-2xl font-bold text-indigo-400 mt-1">AI/ML Engineer</div>
+        <span class="text-[10px] text-zinc-400 mt-1">Avg ₹18.5 LPA</span>
+      </div>
+      <div class="metric-card">
+        <span class="text-xs text-zinc-400 font-medium">Fastest Growing Tech</span>
+        <div class="text-2xl font-bold text-emerald-400 mt-1">Data Analytics</div>
+        <span class="text-[10px] text-emerald-400 flex items-center gap-1 mt-1">
+          <i class="fa-solid fa-arrow-trend-up"></i> +28.6% Growth
+        </span>
+      </div>
+      <div class="metric-card">
+        <span class="text-xs text-zinc-400 font-medium">Remote Work Index</span>
+        <div class="text-2xl font-bold text-purple-400 mt-1">42.8%</div>
+        <span class="text-[10px] text-zinc-400 mt-1">Hybrid / WFH options</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CHARTS SECTION ================= -->
+  <section id="analytics" class="max-w-7xl mx-auto px-4 lg:px-8 py-6">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      
+      <!-- Chart 1: Skill Demand Breakdown -->
+      <div class="lg:col-span-2 bg-[#121218] border border-zinc-800 rounded-xl p-5 hover:border-zinc-700 transition">
+        <div class="flex items-center justify-between mb-4">
+          <h2 class="text-sm font-bold text-white flex items-center gap-2">
+            <i class="fa-solid fa-chart-column text-indigo-400"></i> Top Tech Stack Demand in 2026
+          </h2>
+          <span class="text-[11px] text-zinc-500">Based on active recruitment listings</span>
+        </div>
+        <div class="h-64">
+          <canvas id="demandChart"></canvas>
+        </div>
+      </div>
+
+      <!-- Chart 2: Category Distribution -->
+      <div class="bg-[#121218] border border-zinc-800 rounded-xl p-5 hover:border-zinc-700 transition">
+        <div class="flex items-center justify-between mb-4">
+          <h2 class="text-sm font-bold text-white flex items-center gap-2">
+            <i class="fa-solid fa-pie-chart text-purple-400"></i> Market Share by Domain
+          </h2>
+        </div>
+        <div class="h-64 flex items-center justify-center">
+          <canvas id="domainChart"></canvas>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= HOT SKILLS TRENDS ================= -->
+  <section id="skills" class="max-w-7xl mx-auto px-4 lg:px-8 py-6">
+    <h2 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+      <i class="fa-solid fa-bolt text-amber-400"></i> High-Demand Skills Breakdown
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4" id="skillsGrid">
+      <!-- Injected dynamically by JS -->
+    </div>
+  </section>
+
+  <!-- ================= LIVE MARKET JOBS ================= -->
+  <section id="jobs" class="max-w-7xl mx-auto px-4 lg:px-8 py-6 pb-16">
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+      <div>
+        <h2 class="text-lg font-bold text-white flex items-center gap-2">
+          <i class="fa-solid fa-list-check text-emerald-400"></i> Active Industry Roles & Market Intelligence
+        </h2>
+        <p class="text-xs text-zinc-400">Explore salary benchmarks, key skills required, and open industry requirements.</p>
+      </div>
+
+      <!-- Filter Tabs -->
+      <div class="flex items-center gap-2 overflow-x-auto pb-2 sm:pb-0" id="filterTabs">
+        <button class="filter-btn active" data-filter="all">All Roles</button>
+        <button class="filter-btn" data-filter="Data Science">Data & Analytics</button>
+        <button class="filter-btn" data-filter="AI/ML">AI & ML</button>
+        <button class="filter-btn" data-filter="Software">Engineering</button>
+        <button class="filter-btn" data-filter="Cloud">DevOps & Cloud</button>
+      </div>
+    </div>
+
+    <!-- Job Cards Container -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" id="jobsGrid">
+      <!-- Injected dynamically by JS -->
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="border-t border-zinc-800 bg-[#0a0a0e] py-8 text-center text-xs text-zinc-500">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex items-center space-x-2">
+        <div class="w-6 h-6 bg-black border border-zinc-700 rounded text-white font-bold text-xs flex items-center justify-center">JH</div>
+        <span class="font-semibold text-zinc-300">JOB HUB - Market Insight</span>
+      </div>
+      <p>Project created for 30-Day Vocational Training (VT Report Reference) | Data Analytics Stream</p>
+      <div class="flex space-x-4">
+        <a href="#overview" class="hover:text-zinc-300 transition">Overview</a>
+        <a href="#analytics" class="hover:text-zinc-300 transition">Analytics</a>
+        <a href="#jobs" class="hover:text-zinc-300 transition">Market Trends</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
